@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>TravInfomatics</title>
+		<h1>TravInfomatics</h1>
+		<meta name="viewport" content="initial-scale=1.0">
+		<meta charset="utf-8">
+ 
+<!-- CSS for page -->
+	<style>
+	
+		h1	{
+				font-family: Times;
+				font-size: 120 px;
+				font-weight: bold;
+				text-align: center;
+				text-decoration: underline;
+				text-transform: uppercase;
+				height: 50px;
+				color: green;
+				}
+
+		html, body {
+					height: 100%;
+					width: 90%;
+					margin: 0 auto;
+					padding: 0;
+					background-color: black;
+					}
+		#map{
+			height: 90%;
+			width: 80%;
+			margin: 0 auto;
+			position: center;
+			}
+		#intro{
+			text-align: left;
+			position: inline-block;
+			margin: 0 auto;
+			width: 80%;
+			color: white;
+			}
+    </style>
+
+	</head>
+	
+	<body>
+    
+	<div id="intro">
+		<h3 style="text-align: center">Howdy!</h3>
+		<p style="text-align: left">This is a map that shows all the different 
+		locations that I've lived at or visited for vacation!</p>
+	</div>
+	
+<!-- Div for map -->
+	<div id="map"></div>
+	<script>
+		/* Variable Declaration */
+
+		
+	
+	
+	/*Initization of the map*/
+		function initMap() {
+					
+			map = new google.maps.Map(document.getElementById('map'), {
+			center: {lat: 32.9357105, lng: -97.2211275},
+			zoom: 5,
+			});
+			
+			/*Different Locations*/
+			var keller = new google.maps.Marker({
+				position: {lat: 32.9357105, lng: -97.2211275},
+				map: map,
+				title: 'Keller'
+			});
+			var gainesville = new google.maps.Marker({
+				position: {lat: 33.6462455,lng:-97.145506},
+				map: map,
+				title: 'Gainesville'
+			  });
+			var lewisville = new google.maps.Marker({
+				position:{lat:33.042507, lng: -96.9557645},
+				map: map,
+				title: 'Lewisville'
+			  });
+			var coppell = new google.maps.Marker({
+				position: {lat: 32.958554,lng: -96.9826755},
+				map: map,
+				title: 'Coppell'
+			  });
+			var northlake = new google.maps.Marker({
+				position: {lat:33.0842664,lng: -97.25456},
+				map: map,
+				title: 'Northlake'
+			  });
+			var winterberg = new google.maps.Marker({
+				position: {lat:51.1931483,lng:8.5270099},
+				map: map,
+				title: 'Winterberg'
+			  });
+			var dresden = new google.maps.Marker({
+				position: {lat: 51.048879,lng: 13.7375386},
+				map: map,
+				title: 'Dresden'
+			  });
+			var lakenheath = new google.maps.Marker({
+				position: {lat:52.4079598,lng:0.5542053},
+				map: map,
+				title: 'Lakenheath AFB'
+			  });
+			var antelope = new google.maps.Marker({
+				position: {lat:38.7166536,lng:-121.3647529},
+				map: map,
+				title: 'Antelope'
+			  });
+			var albuquerque = new google.maps.Marker({
+				position: {lat:35.0854037,lng:-106.6059695},
+				map: map,
+				title: 'Albuquerque'
+			  });
+			var las_vegas = new google.maps.Marker({
+				position: {lat:36.2425525,lng:-115.0511392},
+				map: map,
+				title: 'Las Vegas, Nellis AFB'
+			  });
+			var fairbanks = new google.maps.Marker({
+				position: {lat:64.8377771,lng:-147.7163905},
+				map: map,
+				title: 'Fairbanks'
+			  });
+			var north_pole = new google.maps.Marker({
+				position: {lat:64.7515037,lng:-147.3507316},
+				map: map,
+				title: 'North Pole'
+			  });
+			
+			var citycoords =   [{lat: 32.9357105 ,lng: -97.2211275},
+								{lat: 33.6462455 ,lng: -97.145506},
+								{lat: 33.042507  ,lng: -96.9557645},
+								{lat: 32.958554  ,lng: -96.9826755},
+								{lat: 33.0842664 ,lng: -97.25456},
+								{lat: 51.1931483 ,lng: 8.5270099},
+								{lat: 51.048879  ,lng: 13.7375386},
+								{lat: 52.4079598 ,lng: 0.5542053},
+								{lat:38.7166536  ,lng: -121.3647529},
+								{lat:35.0854037  ,lng: -106.6059695},
+								{lat:36.2425525  ,lng: -115.0511392},
+								{lat:64.8377771  ,lng: -147.7163905},
+								{lat:64.7515037  ,lng: -147.3507316}]
+			
+			var citylines = new google.maps.Polyline({
+				path: citycoords,
+				geodesic: true,
+				strokeColor: '#0080FF',
+				strokeOpacity: 1.0,
+				strokeWeight: 2
+			});
+
+			citylines.setMap(map);
+		}
+		
+
+	</script>
+    
+	<!-- Connects to google's API with auth -->
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASa-ybk7VhdfISGHg6YUHQjNe8dwQBCWI&callback=initMap">
+	</script>
+  </body>
+</html>
